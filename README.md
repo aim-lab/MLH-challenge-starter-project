@@ -37,8 +37,10 @@ bronchiolitis cases that are admitted at the Rambam.
 ```
 +
 |- environment.yml  # Conda environment file specifying project dependencies
+|- logging.ini      # Configuration file for the logger
 |- mlh.py           # Implements a command line interface for the project
 |- mlh_challenge/   # Python package for your submission code
+|---- __init__.py   # Environment and folders set up
 |---- data.py       # Data loading and processing, building features
 |---- model.py      # Model implementation
 |---- run.py        # Training and inference runners
@@ -133,12 +135,13 @@ This starter project implements the following steps for inference using an
 
 To perform these steps run e.g.,
 ```shell script
-python mlh.py infer --data-file data/mlh-test.npz --load-model models/model.pkl
+python mlh.py infer --data-file data/mlh-test.npz --load-model models/final-model.pkl
 ```
 This will load a test set from the file `data/mlh-test.npz`,
-load a model from the path `models/model.pkl`, and write an output
+load a model from the path `models/final-model.pkl`, and write an output
 file to the default path of `out/results.csv`
 (can be changed using the `--out-file` option).
+You should edit the relevant file paths to suit your needs.
 
 Notes:
 - You can change the inference code, as long as you keep the existing
@@ -151,14 +154,20 @@ module instead of running from the command line.
 
 1. When you're done working on your solution and feel confident to submit,
 rename the final trained model file to `models/final-model.pkl`.
+2. Make sure you can run inference (as shown above) without errors on your final
+   model! This is mandatory. We will run your code the same way and your
+   submission will fail if it doesn't run.
 2. Submit a zip file named `mlh-id1_id2.zip` where `id1` and `id2`
 are the IDs of the submitters.
 3. The structure inside the zip file should be the same as the project
 structure:
     ```shell
     +
+    |- environment.yml
+    |- logging.ini
     |- mlh.py
     |- mlh_challenge/
+    |---- __init__.py
     |---- data.py
     |---- model.py
     |---- run.py
@@ -168,6 +177,9 @@ structure:
     |- models/
     |---- final-model.pkl  # Your trained model!
     ```
+5. The submitted zip file must contain the project files **directly**, i.e. it
+   not include an additional folder containing these files.
+4. Make sure that all the original project files are included as shown above.
 
 ## Evaluation
 
