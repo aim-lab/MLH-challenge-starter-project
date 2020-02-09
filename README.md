@@ -178,7 +178,7 @@ structure:
     |---- final-model.pkl  # Your trained model!
     ```
 5. The submitted zip file must contain the project files **directly**, i.e. it
-   not include an additional folder containing these files.
+   should not include an additional folder containing these files.
 4. Make sure that all the original project files are included as shown above.
 
 ## Evaluation
